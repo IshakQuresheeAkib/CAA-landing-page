@@ -50,6 +50,7 @@ const addElement = (parentElement) => {
 
 
 onclickTalent.addEventListener('click', () => {
+    // onclickTalent.classList.add = 'talentResponsive'
     onclickTalent.style.color = '#bc1f2f'
     onclickBrands.style.color = '#FFFFFFB3'
     onclickEnterprise.style.color = '#FFFFFFB3'   
