@@ -1,6 +1,7 @@
 const initialDiv = document.getElementById('initialDiv');
 const header = document.querySelector('header')
 const section = document.querySelector('section')
+const submenu = document.getElementById('submenu')
 
 header.addEventListener('click',()=>{
     window.location.reload();
@@ -33,7 +34,7 @@ const onclickTalent = document.getElementById('onclickTalent');
 const onclickBrands = document.getElementById('onclickBrands');
 const onclickEnterprise = document.getElementById('onclickEnterprise');
 const itemsList = document.getElementById("subitems");
-
+let isFirstClick = true;
 
 const talentItems = ['Baseball', 'Basketball', 'CAA base', 'CAA China', 'Client Business Ventures', 'Coachins', 'Entainment Talent', 'Football', 'Hockey', 'Live Event Booking', 'Sports Endorsements', 'CAA Foundation']
 const brandsItems = ['Brand Consulting', 'CAA Brand Management', 'CAA China', 'Digital Media', 'Partnership Sales', 'CAA Brand Studio']
@@ -50,29 +51,95 @@ const addElement = (parentElement) => {
 
 
 onclickTalent.addEventListener('click', () => {
-    // onclickTalent.classList.add = 'talentResponsive'
-    onclickTalent.style.color = '#bc1f2f'
+
+    if (window.innerWidth <= 768) {
+        if (isFirstClick) {
+            itemsList.classList.remove('hidden')
+            addElement(talentItems)
+            onclickTalent.style.color = '#bc1f2f'
+            isFirstClick = false;
+        }else if (!isFirstClick) {
+            itemsList.classList.add('hidden')
+            onclickTalent.style.color = '#FFFFFFB3'
+            isFirstClick = true;
+        }
+        
+        submenu.classList.toggle('responsive')
+        onclickBrands.classList.toggle('responsive')
+        onclickEnterprise.classList.toggle('responsive')
+    }
+
+    if (window.innerWidth > 768 && isFirstClick) {
+        onclickTalent.style.color = '#bc1f2f'
+        addElement(talentItems)
+        isFirstClick = false;
+    } 
+    
     onclickBrands.style.color = '#FFFFFFB3'
     onclickEnterprise.style.color = '#FFFFFFB3'   
-    addElement(talentItems)
     animation()
+    
 })
 
 
 onclickBrands.addEventListener('click', () => {
+
+    if (window.innerWidth <= 768) {
+        if (isFirstClick) {
+            itemsList.classList.remove('hidden')
+            addElement(brandsItems)
+            onclickBrands.style.color = '#bc1f2f'
+            isFirstClick = false;
+        }else if (!isFirstClick) {
+            itemsList.classList.add('hidden')
+            onclickBrands.style.color = '#FFFFFFB3'
+            isFirstClick = true;
+        }
+        
+        submenu.classList.toggle('responsive')
+        onclickTalent.classList.toggle('responsive')
+        onclickEnterprise.classList.toggle('responsive')
+    }
+
+    if (window.innerWidth > 768 && isFirstClick) {
+        onclickBrands.style.color = '#bc1f2f'
+        addElement(brandsItems)
+        isFirstClick = false;
+    } 
+    
     onclickTalent.style.color = '#FFFFFFB3'
-    onclickBrands.style.color = '#bc1f2f'
     onclickEnterprise.style.color = '#FFFFFFB3'   
-    addElement(brandsItems)
     animation()
 })
 
 
 onclickEnterprise.addEventListener('click', () => {
-    onclickEnterprise.style.color = '#bc1f2f'
-    onclickBrands.style.color = '#FFFFFFB3'
+
+    if (window.innerWidth <= 768) {
+        if (isFirstClick) {
+            itemsList.classList.remove('hidden')
+            addElement(enterpriseItems)
+            onclickEnterprise.style.color = '#bc1f2f'
+            isFirstClick = false;
+        }else if (!isFirstClick) {
+            itemsList.classList.add('hidden')
+            onclickEnterprise.style.color = '#FFFFFFB3'
+            isFirstClick = true;
+        }
+        
+        submenu.classList.toggle('responsive')
+        onclickTalent.classList.toggle('responsive')
+        onclickBrands.classList.toggle('responsive')
+    }
+
+    if (window.innerWidth > 768 && isFirstClick) {
+        onclickEnterprise.style.color = '#bc1f2f'
+        addElement(enterpriseItems)
+        isFirstClick = false;
+    } 
+    
     onclickTalent.style.color = '#FFFFFFB3'
-    addElement(enterpriseItems);
+    onclickBrands.style.color = '#FFFFFFB3'   
     animation()
 })
 
