@@ -1,0 +1,16 @@
+ul>li:hover {
+    color: white;
+    transition: 0.1s all ease-out ;
+}
+
+
+li {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s, transform 0.3s;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
