@@ -35,6 +35,9 @@ const onclickBrands = document.getElementById('onclickBrands');
 const onclickEnterprise = document.getElementById('onclickEnterprise');
 const itemsList = document.getElementById("subitems");
 let isFirstClick = true;
+let isTalentClick = true;
+let isBrandsClick = true;
+let isEnterpriseClick = true;
 
 const talentItems = ['Baseball', 'Basketball', 'CAA base', 'CAA China', 'Client Business Ventures', 'Coachins', 'Entainment Talent', 'Football', 'Hockey', 'Live Event Booking', 'Sports Endorsements', 'CAA Foundation']
 const brandsItems = ['Brand Consulting', 'CAA Brand Management', 'CAA China', 'Digital Media', 'Partnership Sales', 'CAA Brand Studio']
@@ -69,10 +72,12 @@ onclickTalent.addEventListener('click', () => {
         onclickEnterprise.classList.toggle('responsive')
     }
 
-    if (window.innerWidth > 768 && isFirstClick) {
+    if (window.innerWidth > 768 && isTalentClick) {
         onclickTalent.style.color = '#bc1f2f'
         addElement(talentItems)
-        isFirstClick = false;
+        isTalentClick = false;
+        isBrandsClick = true;
+        isEnterpriseClick = true;
     } 
     
     onclickBrands.style.color = '#FFFFFFB3'
@@ -101,10 +106,12 @@ onclickBrands.addEventListener('click', () => {
         onclickEnterprise.classList.toggle('responsive')
     }
 
-    if (window.innerWidth > 768 && isFirstClick) {
+    if (window.innerWidth > 768 && isBrandsClick) {
         onclickBrands.style.color = '#bc1f2f'
         addElement(brandsItems)
-        isFirstClick = false;
+        isBrandsClick = false;
+        isTalentClick = true;
+        isEnterpriseClick = true;
     } 
     
     onclickTalent.style.color = '#FFFFFFB3'
@@ -132,10 +139,12 @@ onclickEnterprise.addEventListener('click', () => {
         onclickBrands.classList.toggle('responsive')
     }
 
-    if (window.innerWidth > 768 && isFirstClick) {
+    if (window.innerWidth > 768 && isEnterpriseClick) {
         onclickEnterprise.style.color = '#bc1f2f'
         addElement(enterpriseItems)
-        isFirstClick = false;
+        isEnterpriseClick = false;
+        isBrandsClick = true;
+        isEnterpriseClick = true;
     } 
     
     onclickTalent.style.color = '#FFFFFFB3'
